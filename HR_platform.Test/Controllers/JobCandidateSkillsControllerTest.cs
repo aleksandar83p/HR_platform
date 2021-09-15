@@ -16,7 +16,7 @@ namespace HR_platform.Test.Controllers
     public class JobCandidateSkillsControllerTest
     {
         [TestMethod]
-        public async Task GetSkillsAsync_Return200OK()
+        public async Task GetJobCandidateSkillsAsync_Return200OK()
         {
             List<JobCandidateSkill> jobCandidateSkills = GetDemoJobCandidateSkillsList();
 
@@ -31,7 +31,7 @@ namespace HR_platform.Test.Controllers
         }
 
         [TestMethod]
-        public async Task GetSkillByIdAsync_Return200OK()
+        public async Task GetJobCandidateSkillByIdAsync_Return200OK()
         {
             var mockRepository = new Mock<IJobCandidateSkillsRepository>();
             var item = GetDemoJobCandidateSkill();
@@ -46,7 +46,7 @@ namespace HR_platform.Test.Controllers
         }
 
         [TestMethod]
-        public async Task GetSkillByIdAsync_Return404NotFound()
+        public async Task GetJobCandidateSkillByIdAsync_Return404NotFound()
         {
             var mockRepository = new Mock<IJobCandidateSkillsRepository>();
             var controller = new JobCandidateSkillsController(mockRepository.Object);
@@ -57,7 +57,7 @@ namespace HR_platform.Test.Controllers
         }
 
         [TestMethod]
-        public async Task CreateSkillAsync_Return201Created()
+        public async Task CreateJobCandidateSkillAsync_Return201Created()
         {
             var mockRepository = new Mock<IJobCandidateSkillsRepository>();
             var controller = new JobCandidateSkillsController(mockRepository.Object);
@@ -70,7 +70,7 @@ namespace HR_platform.Test.Controllers
         }
 
         [TestMethod]
-        public async Task UpdateSkillAsync_Return200OK()
+        public async Task UpdateJobCandidateSkillAsync_Return200OK()
         {
             var mockRepository = new Mock<IJobCandidateSkillsRepository>();
             var controller = new JobCandidateSkillsController(mockRepository.Object);
@@ -82,7 +82,7 @@ namespace HR_platform.Test.Controllers
         }
 
         [TestMethod]
-        public async Task UpdatSkillAsync_Return400BadRequest()
+        public async Task UpdatJobCandidateSkillAsync_Return400BadRequest()
         {
             var mockRepository = new Mock<IJobCandidateSkillsRepository>();
             var controller = new JobCandidateSkillsController(mockRepository.Object);
@@ -94,7 +94,7 @@ namespace HR_platform.Test.Controllers
         }
 
         [TestMethod]
-        public async Task DeleteSkillAsync_ReturnStatus200OK()
+        public async Task DeleteJobCandidateSkillAsync_ReturnStatus200OK()
         {
             var mockRepository = new Mock<IJobCandidateSkillsRepository>();
             var item = GetDemoJobCandidateSkill();
@@ -108,7 +108,7 @@ namespace HR_platform.Test.Controllers
 
 
         [TestMethod]
-        public async Task DeleteSkillAsync_ReturnStatus404NotFound()
+        public async Task JobCandidateSkillAsync_ReturnStatus404NotFound()
         {
             var mockRepository = new Mock<IJobCandidateSkillsRepository>();
             var item = GetDemoJobCandidateSkill();
