@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace HR_platform.Repository
 {
-    public class JobCandidateRepository : IJobCandidateRepository
+    public class JobCandidateRepository : IJobCandidateRepository, IDisposable
     {
-        private readonly AppDbContext _appDbContext;
+        private AppDbContext _appDbContext;
 
         public JobCandidateRepository()
         {
@@ -37,6 +37,24 @@ namespace HR_platform.Repository
                 _appDbContext.JobCandidates.Remove(result);
                 await _appDbContext.SaveChangesAsync();
             }
+        }
+
+        protected void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                if (_appDbContext != null)
+                {
+                    _appDbContext.Dispose();
+                    _appDbContext = null;
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         public async Task<JobCandidate> GetJobCandidateByIdAsync(int jobCandidateId)
